@@ -1,0 +1,34 @@
+{
+  "useTabs": true,
+  "tabWidth": 4,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.{css,sass,scss,pcss}",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json",
+        "useTabs": false,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ".prettierrc",
+      "options": {
+        "parser": "json",
+        "useTabs": false,
+        "tabWidth": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+.average {
+	margin-block-end: 3rem;
+
+	p {
+		font-style: italic;
+	}
+}
+
+.macro-values {
+	display: flex;
+	gap: 1.5rem;
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		font-size: 2rem;
+	}
+}
+
+.day {}
+
+.macro {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+}

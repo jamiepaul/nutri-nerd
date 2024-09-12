@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { MacrosContext } from '../MacrosProvider/MacrosProvider';
+
 import styles from './FormAddMacros.module.css';
 
 function FormAddMacros() {
-	const [dailyMacros, setDailyMacros] = useState([]);
+	console.log('FormAddMacros rendered');
+	const { setMacros } = useContext(MacrosContext);
 	const [date, setDate] = useState('');
 	const [protein, setProtein] = useState('');
 	const [carbs, setCarbs] = useState('');
@@ -11,15 +14,7 @@ function FormAddMacros() {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		setDailyMacros([
-			...dailyMacros,
-			{
-				date,
-				protein,
-				carbs,
-				fat,
-			},
-		]);
+		setMacros({ date, protein, carbs, fat });
 
 		// clear inupts
 		setDate('');

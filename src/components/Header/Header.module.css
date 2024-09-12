@@ -1,6 +1,9 @@
 .header {
 	text-align: center;
 	margin-block-end: 2rem;
+	max-width: 1280px;
+	margin: 0 auto 2rem;
+	padding: 2rem;
 }
 
 .logo-row {

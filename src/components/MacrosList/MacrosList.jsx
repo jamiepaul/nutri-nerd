@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { MacrosContext } from '../MacrosProvider/MacrosProvider';
+
 import { PREV_MACROS } from './MacrosList.constants';
 import styles from './MacrosList.module.css';
 
@@ -6,6 +9,8 @@ import styles from './MacrosList.module.css';
 // }
 
 function MacrosList() {
+	console.log('MacrosList rendered');
+	const { dailyMacros } = useContext(MacrosContext);
 	return (
 		<>
 			<p>TODO: display averages from last week</p>
@@ -28,7 +33,7 @@ function MacrosList() {
 				</dl>
 			</div>
 
-			{PREV_MACROS.map((day) => (
+			{dailyMacros.map((day) => (
 				<article key={day.id} className={styles.day}>
 					<h3>{day.date}</h3>
 					<dl className={styles['macro-values']}>
@@ -38,7 +43,7 @@ function MacrosList() {
 						</div>
 						<div className={styles.macro}>
 							<dt>Carbs</dt>
-							<dd>{day.carb}</dd>
+							<dd>{day.carbs}</dd>
 						</div>
 						<div className={styles.macro}>
 							<dt>Fat</dt>

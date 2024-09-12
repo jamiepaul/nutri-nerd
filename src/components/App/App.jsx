@@ -1,17 +1,20 @@
-import { useState } from 'react';
-
-import Header from '../Header/Header';
 import styles from './App.module.css';
+import Header from '../Header';
+import FormAddMacros from '../FormAddMacros';
+import MacrosList from '../MacrosList';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <div className={styles.card}>
-
-      </div>
-    </>
-  )
+	return (
+		<>
+			<Header />
+			<main>
+        <FormAddMacros />
+				<div>
+          <MacrosList />
+				</div>
+			</main>
+		</>
+	);
 }
 
-export default App
+export default App;

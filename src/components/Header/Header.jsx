@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 
 function Header() {
 	return (
-		<header>
+		<header className={styles.header}>
 			<div className={styles['logo-row']}>
 				<a href="https://vitejs.dev" target="_blank">
 					<img

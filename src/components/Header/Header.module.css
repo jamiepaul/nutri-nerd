@@ -1,5 +1,11 @@
+.header {
+	text-align: center;
+	margin-block-end: 2rem;
+}
+
 .logo-row {
 	display: flex;
+	justify-content: center;
 	gap: 1em;
 }
 

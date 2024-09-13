@@ -2,19 +2,21 @@ import styles from './App.module.css';
 import Header from '../Header';
 import FormAddMacros from '../FormAddMacros';
 import MacrosList from '../MacrosList';
+import TrackedAverages from '../TrackedAverages/TrackedAverages';
 import MacrosProvider from '../MacrosProvider/MacrosProvider';
 
 function App() {
-  console.log('App rendered');
+	console.log('App rendered');
 	return (
 		<MacrosProvider>
 			<Header />
 			<main className={styles.main}>
-        <section className={styles.split}>
-          <FormAddMacros />
-        </section>
 				<section className={styles.split}>
-          <MacrosList />
+					<FormAddMacros />
+					<MacrosList />
+				</section>
+				<section className={styles.split}>
+					<TrackedAverages />
 				</section>
 			</main>
 		</MacrosProvider>

@@ -1,58 +1,33 @@
 import { useContext } from 'react';
 import { MacrosContext } from '../MacrosProvider/MacrosProvider';
 
-import { PREV_MACROS } from './MacrosList.constants';
 import styles from './MacrosList.module.css';
-
-// function getAverage() {
-
-// }
 
 function MacrosList() {
 	console.log('MacrosList rendered');
 	const { dailyMacros } = useContext(MacrosContext);
 	return (
-		<>
-			<p>TODO: display averages from last week</p>
-			<div className={styles.average}>
-				<h2>Averages</h2>
-				<p>From X to X (todo add dates)</p>
-				<dl className={styles['macro-values']}>
-					<div className={styles.macro}>
-						<dt>Protein</dt>
-						<dd>130</dd>
-					</div>
-					<div className={styles.macro}>
-						<dt>Carbs</dt>
-						<dd>200</dd>
-					</div>
-					<div className={styles.macro}>
-						<dt>Fat</dt>
-						<dd>55</dd>
-					</div>
-				</dl>
-			</div>
-
+		<ul className={styles.list}>
 			{dailyMacros.map((day) => (
-				<article key={day.id} className={styles.day}>
-					<h3>{day.date}</h3>
-					<dl className={styles['macro-values']}>
-						<div className={styles.macro}>
+				<li key={day.id} className={styles['list-item']}>
+					<h3 className={styles.heading}>{day.date}</h3>
+					<dl className={styles.values}>
+						<div className={styles.value}>
 							<dt>Protein</dt>
 							<dd>{day.protein}</dd>
 						</div>
-						<div className={styles.macro}>
+						<div className={styles.value}>
 							<dt>Carbs</dt>
 							<dd>{day.carbs}</dd>
 						</div>
-						<div className={styles.macro}>
+						<div className={styles.value}>
 							<dt>Fat</dt>
 							<dd>{day.fat}</dd>
 						</div>
 					</dl>
-				</article>
+				</li>
 			))}
-		</>
+		</ul>
 	);
 }
 

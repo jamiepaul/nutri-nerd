@@ -1,27 +1,42 @@
-.average {
-	margin-block-end: 3rem;
+.list {
+	border-top: 3px solid teal;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
-	p {
-		font-style: italic;
+.list-item {
+	display: flex;
+	align-items: baseline;
+	gap: 1.5rem;
+	padding-block: 0.2rem;
+
+	+ .list-item {
+		border-top: 1px solid gray;
 	}
 }
 
-.macro-values {
+.heading {
+	text-transform: uppercase;
+	color: teal;
+	font-size: 0.8rem;
+	width: 100px;
+}
+
+.values {
 	display: flex;
 	gap: 1.5rem;
 
 	dt {
-		font-weight: bold;
+		font-size: 0.8rem;
 	}
 
 	dd {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 }
 
-.day {}
-
-.macro {
+.value {
 	display: flex;
 	align-items: baseline;
 	gap: 0.5rem;

@@ -13,10 +13,8 @@ function MacrosProvider({ children }) {
 		window.localStorage.setItem('daily-macros', JSON.stringify(dailyMacros));
 	}, [dailyMacros]);
 
-	// console.log(dailyMacros);
-
 	const value = useMemo(() => {
-		function setMacros({ date, protein, carbs, fat }) {
+		function addEntry({ date, protein, carbs, fat }) {
 			setDailyMacros([
 				...dailyMacros,
 				{
@@ -29,8 +27,26 @@ function MacrosProvider({ children }) {
 			]);
 		}
 
-		return { dailyMacros, setMacros };
+		function removeEntry(id) {
+			if (!id) {
+				console.warn('Unable to remove entry without providing the ID');
+				return;
+			}
+
+			const nextDailyMacros = dailyMacros.filter((entry) => {
+				return entry.id !== id;
+			});
+			setDailyMacros(nextDailyMacros);
+		}
+
+		function removeAllEntries() {
+			setDailyMacros([]);
+		}
+
+		return { dailyMacros, addEntry, removeEntry, removeAllEntries };
 	}, [dailyMacros]);
+
+	console.log(dailyMacros);
 
 	return (
 		<MacrosContext.Provider value={value}>

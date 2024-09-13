@@ -5,7 +5,7 @@ import styles from './FormAddMacros.module.css';
 
 function FormAddMacros() {
 	console.log('FormAddMacros rendered');
-	const { setMacros } = useContext(MacrosContext);
+	const { addEntry } = useContext(MacrosContext);
 	const [date, setDate] = useState('');
 	const [protein, setProtein] = useState('');
 	const [carbs, setCarbs] = useState('');
@@ -14,7 +14,7 @@ function FormAddMacros() {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		setMacros({ date, protein, carbs, fat });
+		addEntry({ date, protein, carbs, fat });
 
 		// clear inupts
 		setDate('');

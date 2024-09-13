@@ -1,3 +1,20 @@
+.reset {
+	background-color: transparent;
+	color: darkslategrey;
+	padding: 1rem 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+}
+
+.reset:hover,
+.reset:focus-visible {
+	background-color: transparent;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.25rem;
+}
+
 .list {
 	border-top: 3px solid teal;
 	margin: 0;
@@ -9,7 +26,7 @@
 	display: flex;
 	align-items: baseline;
 	gap: 1.5rem;
-	padding-block: 0.2rem;
+	padding-block: 0.5rem;
 
 	+ .list-item {
 		border-top: 1px solid gray;
@@ -25,14 +42,14 @@
 
 .values {
 	display: flex;
-	gap: 1.5rem;
+	gap: 1rem;
 
 	dt {
 		font-size: 0.8rem;
 	}
 
 	dd {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 }
 
@@ -40,4 +57,22 @@
 	display: flex;
 	align-items: baseline;
 	gap: 0.5rem;
+}
+
+.button {
+	background-color: transparent;
+	border: 1px solid teal;
+	color: teal;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+}
+
+.button:hover,
+.button:focus-visible {
+	background-color: teal;
+	color: white;
 }

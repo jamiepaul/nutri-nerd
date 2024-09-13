@@ -46,7 +46,7 @@ function MacrosProvider({ children }) {
 		return { dailyMacros, addEntry, removeEntry, removeAllEntries };
 	}, [dailyMacros]);
 
-	console.log(dailyMacros);
+	// console.log(dailyMacros);
 
 	return (
 		<MacrosContext.Provider value={value}>

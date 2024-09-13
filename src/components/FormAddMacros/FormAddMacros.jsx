@@ -1,7 +1,9 @@
 import { useState, useContext } from 'react';
 import { MacrosContext } from '../MacrosProvider/MacrosProvider';
 
+import { random } from '../../helpers/math.helpers';
 import styles from './FormAddMacros.module.css';
+import { SymbolIcon } from '@radix-ui/react-icons';
 
 function FormAddMacros() {
 	console.log('FormAddMacros rendered');
@@ -21,6 +23,17 @@ function FormAddMacros() {
 		setProtein('');
 		setCarbs('');
 		setFat('');
+	}
+
+	function addRandomEntry(e) {
+		e.preventDefault();
+
+		addEntry({
+			date: 'Example',
+			protein: random(116, 132),
+			carbs: random(185, 215),
+			fat: random(50, 65),
+		});
 	}
 
 	return (
@@ -80,7 +93,17 @@ function FormAddMacros() {
 					</div>
 				</div>
 
-				<button type="submit">Submit</button>
+				<div className={styles['btn-row']}>
+					<button type="submit">Submit</button>
+					<button
+						type="button"
+						className={styles['btn-random']}
+						onClick={addRandomEntry}
+					>
+						Generate Random
+						<SymbolIcon />
+					</button>
+				</div>
 			</form>
 		</div>
 	);

@@ -2,7 +2,7 @@
 	padding: 2rem;
 	border: 1px solid;
 	border-radius: 1.8em;
-	margin-block-end: 3rem;
+	margin-block-end: 2rem;
 }
 
 .form {
@@ -36,4 +36,33 @@
 	.input-wide {
 		width: 10.8rem;
 	}
+}
+
+.btn-row {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.btn-random {
+	background-color: transparent;
+	color: slategrey;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 1rem 0;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	font-weight: bold;
+	letter-spacing: 0.025em;
+
+}
+
+.btn-random:hover,
+.btn-random:focus-visible {
+	background-color: transparent;
+	color: black;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.25rem;
 }

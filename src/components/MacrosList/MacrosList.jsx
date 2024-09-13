@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { MacrosContext } from '../MacrosProvider/MacrosProvider';
 
 import styles from './MacrosList.module.css';
-import { Cross2Icon } from '@radix-ui/react-icons';
+import { Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
 
 function MacrosList() {
 	console.log('MacrosList rendered');
@@ -16,6 +16,7 @@ function MacrosList() {
 		<aside className={styles['macros-list']}>
 			<button className={styles.reset} onClick={removeAllEntries}>
 				Clear All
+				<TrashIcon />
 			</button>
 			<ul className={styles.list}>
 				{dailyMacros.map((day) => (

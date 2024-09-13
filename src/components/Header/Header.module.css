@@ -10,11 +10,11 @@
 	display: flex;
 	justify-content: center;
 	gap: 1em;
+	margin-block-end: 1rem;
 }
 
 .logo {
-	/* height: 3em; */
-	padding: 1.5em;
+	padding: 0.25rem;
 	will-change: filter;
 	transition: filter 300ms;
 }

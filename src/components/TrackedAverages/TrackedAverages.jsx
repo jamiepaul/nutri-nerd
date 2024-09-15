@@ -9,14 +9,18 @@ function TrackedAverages() {
 	const { dailyMacros } = useContext(MacrosContext);
 
 	const avg = useMemo(() => {
-		const avgProtein = average(dailyMacros.map(entry => entry.protein));
-		const avgCarbs = average(dailyMacros.map(entry => entry.carbs));
-		const avgFat = average(dailyMacros.map(entry => entry.fat));
+		if (dailyMacros.length === 0) {
+			return {
+				protein: 0,
+				carbs: 0,
+				fat: 0
+			};
+		}
 
 		return {
-			protein: avgProtein,
-			carbs: avgCarbs,
-			fat: avgFat
+			protein: average(dailyMacros.map(entry => entry.protein)),
+			carbs: average(dailyMacros.map(entry => entry.carbs)),
+			fat: average(dailyMacros.map(entry => entry.fat))
 		};
 	}, [dailyMacros]);
 

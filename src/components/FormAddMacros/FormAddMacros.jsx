@@ -64,7 +64,7 @@ function FormAddMacros() {
 							name="protein"
 							required
 							value={protein}
-							onChange={(e) => setProtein(e.target.value)}
+							onChange={(e) => setProtein(e.target.valueAsNumber)}
 						/>
 					</div>
 					<div className={styles.field}>
@@ -76,7 +76,7 @@ function FormAddMacros() {
 							name="carbs"
 							required
 							value={carbs}
-							onChange={(e) => setCarbs(e.target.value)}
+							onChange={(e) => setCarbs(e.target.valueAsNumber)}
 						/>
 					</div>
 					<div className={styles.field}>
@@ -88,7 +88,7 @@ function FormAddMacros() {
 							name="fat"
 							required
 							value={fat}
-							onChange={(e) => setFat(e.target.value)}
+							onChange={(e) => setFat(e.target.valueAsNumber)}
 						/>
 					</div>
 				</div>

@@ -1,30 +1,30 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, FormEvent, MouseEvent } from 'react';
 import { MacrosContext } from '../MacrosProvider/MacrosProvider';
 
 import { random } from '../../helpers/math.helpers';
 import styles from './FormAddMacros.module.css';
 import { SymbolIcon } from '@radix-ui/react-icons';
 
-function FormAddMacros() {
+const FormAddMacros = (): JSX.Element => {
 	const { addEntry } = useContext(MacrosContext);
 	const [date, setDate] = useState('');
-	const [protein, setProtein] = useState('');
-	const [carbs, setCarbs] = useState('');
-	const [fat, setFat] = useState('');
+	const [protein, setProtein] = useState(0);
+	const [carbs, setCarbs] = useState(0);
+	const [fat, setFat] = useState(0);
 
-	function handleSubmit(e) {
+	function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 
 		addEntry({ date, protein, carbs, fat });
 
 		// clear inupts
 		setDate('');
-		setProtein('');
-		setCarbs('');
-		setFat('');
+		setProtein(0);
+		setCarbs(0);
+		setFat(0);
 	}
 
-	function addRandomEntry(e) {
+	function addRandomEntry(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault();
 
 		addEntry({
@@ -106,6 +106,6 @@ function FormAddMacros() {
 			</form>
 		</div>
 	);
-}
+};
 
 export default FormAddMacros;

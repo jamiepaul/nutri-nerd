@@ -5,7 +5,7 @@ import MacrosList from '../MacrosList';
 import TrackedAverages from '../TrackedAverages/TrackedAverages';
 import MacrosProvider from '../MacrosProvider/MacrosProvider';
 
-function App() {
+const App = (): JSX.Element => {
 	return (
 		<>
 			<Header />
@@ -22,6 +22,6 @@ function App() {
 			</MacrosProvider>
 		</>
 	);
-}
+};
 
 export default App;

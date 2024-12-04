@@ -11,10 +11,12 @@ indent_style = space
 indent_size = 2
 
 [*.json]
-indent_style = tab
+indent_style = space
+indent_size = 2
 
 [*.js]
-indent_style = tab
+indent_style = space
+indent_size = 2
 spaces_within_imports = true
 
 [*.md]

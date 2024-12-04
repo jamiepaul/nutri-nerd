@@ -1,16 +1,18 @@
-import { createContext, useState, useMemo, useEffect } from "react";
+import { createContext, useState, useMemo, useEffect } from 'react';
 
 export const MacrosContext = createContext();
 
 function MacrosProvider({ children }) {
-	console.log('MacrosProvider rendered');
 	const [dailyMacros, setDailyMacros] = useState(() => {
 		const storedMacros = window.localStorage.getItem('daily-macros');
 		return JSON.parse(storedMacros) || [];
 	});
 
 	useEffect(() => {
-		window.localStorage.setItem('daily-macros', JSON.stringify(dailyMacros));
+		window.localStorage.setItem(
+			'daily-macros',
+			JSON.stringify(dailyMacros)
+		);
 	}, [dailyMacros]);
 
 	const value = useMemo(() => {
@@ -45,8 +47,6 @@ function MacrosProvider({ children }) {
 
 		return { dailyMacros, addEntry, removeEntry, removeAllEntries };
 	}, [dailyMacros]);
-
-	// console.log(dailyMacros);
 
 	return (
 		<MacrosContext.Provider value={value}>

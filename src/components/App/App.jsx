@@ -6,20 +6,21 @@ import TrackedAverages from '../TrackedAverages/TrackedAverages';
 import MacrosProvider from '../MacrosProvider/MacrosProvider';
 
 function App() {
-	console.log('App rendered');
 	return (
-		<MacrosProvider>
+		<>
 			<Header />
-			<main className={styles.main}>
-				<section className={styles.split}>
-					<FormAddMacros />
-					<MacrosList />
-				</section>
-				<section className={styles.split}>
-					<TrackedAverages />
-				</section>
-			</main>
-		</MacrosProvider>
+			<MacrosProvider>
+				<main className={styles.main}>
+					<section className={styles.split}>
+						<FormAddMacros />
+						<MacrosList />
+					</section>
+					<section className={styles.split}>
+						<TrackedAverages />
+					</section>
+				</main>
+			</MacrosProvider>
+		</>
 	);
 }
 

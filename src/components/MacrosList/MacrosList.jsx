@@ -5,8 +5,8 @@ import styles from './MacrosList.module.css';
 import { Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
 
 function MacrosList() {
-	console.log('MacrosList rendered');
-	const { dailyMacros, removeEntry, removeAllEntries } = useContext(MacrosContext);
+	const { dailyMacros, removeEntry, removeAllEntries } =
+		useContext(MacrosContext);
 
 	if (dailyMacros.length <= 0) {
 		return;

@@ -6,7 +6,6 @@ import styles from './FormAddMacros.module.css';
 import { SymbolIcon } from '@radix-ui/react-icons';
 
 function FormAddMacros() {
-	console.log('FormAddMacros rendered');
 	const { addEntry } = useContext(MacrosContext);
 	const [date, setDate] = useState('');
 	const [protein, setProtein] = useState('');

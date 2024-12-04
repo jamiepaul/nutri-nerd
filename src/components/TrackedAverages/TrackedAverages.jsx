@@ -5,7 +5,6 @@ import { average } from '../../helpers/math.helpers';
 import styles from './TrackedAverages.module.css';
 
 function TrackedAverages() {
-	console.log('TrackedAverages rendered');
 	const { dailyMacros } = useContext(MacrosContext);
 
 	const avg = useMemo(() => {
@@ -13,14 +12,14 @@ function TrackedAverages() {
 			return {
 				protein: 0,
 				carbs: 0,
-				fat: 0
+				fat: 0,
 			};
 		}
 
 		return {
-			protein: average(dailyMacros.map(entry => entry.protein)),
-			carbs: average(dailyMacros.map(entry => entry.carbs)),
-			fat: average(dailyMacros.map(entry => entry.fat))
+			protein: average(dailyMacros.map((entry) => entry.protein)),
+			carbs: average(dailyMacros.map((entry) => entry.carbs)),
+			fat: average(dailyMacros.map((entry) => entry.fat)),
 		};
 	}, [dailyMacros]);
 

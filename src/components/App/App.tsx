@@ -3,7 +3,7 @@ import Header from '../Header';
 import FormAddMacros from '../FormAddMacros';
 import MacrosList from '../MacrosList';
 import TrackedAverages from '../TrackedAverages/TrackedAverages';
-import MacrosProvider from '../MacrosProvider/MacrosProvider';
+import MacrosProvider from '../MacrosContext/MacrosProvider';
 
 const App = (): JSX.Element => {
 	return (

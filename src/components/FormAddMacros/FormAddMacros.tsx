@@ -1,9 +1,8 @@
 import { useState, FormEvent, MouseEvent } from 'react';
-import { useMacrosContext } from '../MacrosProvider/MacrosProvider';
-
+import { useMacrosContext } from '../MacrosContext/MacrosContext';
 import { random } from '../../helpers/math.helpers';
-import styles from './FormAddMacros.module.css';
 import { SymbolIcon } from '@radix-ui/react-icons';
+import styles from './FormAddMacros.module.css';
 
 const FormAddMacros = (): JSX.Element => {
 	const { addEntry } = useMacrosContext();

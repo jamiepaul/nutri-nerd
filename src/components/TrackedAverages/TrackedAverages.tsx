@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { useMacrosContext } from '../MacrosProvider/MacrosProvider';
 import { average } from '../../helpers/math.helpers';
 
 import styles from './TrackedAverages.module.css';
+import { useMacrosContext } from '../MacrosContext/MacrosContext';
 
 const TrackedAverages = (): JSX.Element => {
 	const { dailyMacros } = useMacrosContext();

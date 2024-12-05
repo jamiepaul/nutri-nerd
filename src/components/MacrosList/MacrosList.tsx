@@ -1,7 +1,6 @@
-import { useMacrosContext } from '../MacrosProvider/MacrosProvider';
-
-import styles from './MacrosList.module.css';
+import { useMacrosContext } from '../MacrosContext/MacrosContext';
 import { Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
+import styles from './MacrosList.module.css';
 
 const MacrosList = (): JSX.Element | undefined => {
 	const { dailyMacros, removeEntry, removeAllEntries } = useMacrosContext();

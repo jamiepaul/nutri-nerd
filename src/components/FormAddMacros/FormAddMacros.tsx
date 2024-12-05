@@ -1,12 +1,12 @@
-import { useState, useContext, FormEvent, MouseEvent } from 'react';
-import { MacrosContext } from '../MacrosProvider/MacrosProvider';
+import { useState, FormEvent, MouseEvent } from 'react';
+import { useMacrosContext } from '../MacrosProvider/MacrosProvider';
 
 import { random } from '../../helpers/math.helpers';
 import styles from './FormAddMacros.module.css';
 import { SymbolIcon } from '@radix-ui/react-icons';
 
 const FormAddMacros = (): JSX.Element => {
-	const { addEntry } = useContext(MacrosContext);
+	const { addEntry } = useMacrosContext();
 	const [date, setDate] = useState('');
 	const [protein, setProtein] = useState(0);
 	const [carbs, setCarbs] = useState(0);

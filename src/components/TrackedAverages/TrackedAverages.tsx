@@ -1,11 +1,11 @@
-import { useContext, useMemo } from 'react';
-import { MacrosContext } from '../MacrosProvider/MacrosProvider';
+import { useMemo } from 'react';
+import { useMacrosContext } from '../MacrosProvider/MacrosProvider';
 import { average } from '../../helpers/math.helpers';
 
 import styles from './TrackedAverages.module.css';
 
-function TrackedAverages() {
-	const { dailyMacros } = useContext(MacrosContext);
+const TrackedAverages = (): JSX.Element => {
+	const { dailyMacros } = useMacrosContext();
 
 	const avg = useMemo(() => {
 		if (dailyMacros.length === 0) {
@@ -43,6 +43,6 @@ function TrackedAverages() {
 			</dl>
 		</div>
 	);
-}
+};
 
 export default TrackedAverages;

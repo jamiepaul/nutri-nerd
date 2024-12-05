@@ -1,16 +1,16 @@
-import { useContext } from 'react';
-import { MacrosContext } from '../MacrosProvider/MacrosProvider';
+import { DayMacros, useMacrosContext } from '../MacrosProvider/MacrosProvider';
 
 import styles from './MacrosList.module.css';
 import { Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
 
-function MacrosList() {
-	const { dailyMacros, removeEntry, removeAllEntries } =
-		useContext(MacrosContext);
+const MacrosList = (): JSX.Element | undefined => {
+	const { dailyMacros, removeEntry, removeAllEntries } = useMacrosContext();
 
 	if (dailyMacros.length <= 0) {
 		return;
 	}
+
+	console.log(dailyMacros);
 
 	return (
 		<aside className={styles['macros-list']}>
@@ -19,7 +19,7 @@ function MacrosList() {
 				<TrashIcon />
 			</button>
 			<ul className={styles.list}>
-				{dailyMacros.map((day) => (
+				{dailyMacros.map((day: DayMacros) => (
 					<li key={day.id} className={styles['list-item']}>
 						<h3 className={styles.heading}>{day.date}</h3>
 						<dl className={styles.values}>
@@ -47,6 +47,6 @@ function MacrosList() {
 			</ul>
 		</aside>
 	);
-}
+};
 
 export default MacrosList;

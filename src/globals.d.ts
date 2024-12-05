@@ -9,10 +9,3 @@ declare module '*.module.css' {
 	const classes: { [key: string]: string };
 	export default classes;
 }
-
-type DayMacros = {
-	date: string;
-	protein: number;
-	carbs: number;
-	fat: number;
-};

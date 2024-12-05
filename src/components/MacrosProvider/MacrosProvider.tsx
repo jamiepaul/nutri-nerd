@@ -7,18 +7,21 @@ import {
 } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export type DayMacros = {
-	id?: string;
+type NewDayMacros = {
 	date?: string;
 	protein: number;
 	carbs: number;
 	fat: number;
 };
 
+type StoredDayMacros = NewDayMacros & {
+	id: string;
+};
+
 type MacrosContextState = {
-	dailyMacros: DayMacros[];
-	addEntry: (entry: DayMacros) => void;
-	removeEntry: (id: string | undefined) => void;
+	dailyMacros: StoredDayMacros[];
+	addEntry: (entry: NewDayMacros) => void;
+	removeEntry: (id: string) => void;
 	removeAllEntries: () => void;
 };
 
@@ -34,19 +37,19 @@ export const useMacrosContext = () => {
 	return context;
 };
 
-const initialDailyMacros = (): DayMacros[] => {
+const initialDailyMacros = (): StoredDayMacros[] => {
 	const storedMacros = window.localStorage.getItem('daily-macros');
 
 	if (storedMacros === null) {
 		return [];
 	}
 
-	return JSON.parse(storedMacros) as DayMacros[];
+	return JSON.parse(storedMacros) as StoredDayMacros[];
 };
 
 const MacrosProvider = ({ children }: PropsWithChildren): JSX.Element => {
 	const [dailyMacros, setDailyMacros] =
-		useState<DayMacros[]>(initialDailyMacros);
+		useState<StoredDayMacros[]>(initialDailyMacros);
 
 	useEffect(() => {
 		window.localStorage.setItem(
@@ -55,7 +58,7 @@ const MacrosProvider = ({ children }: PropsWithChildren): JSX.Element => {
 		);
 	}, [dailyMacros]);
 
-	const addEntry = ({ date, protein, carbs, fat }: DayMacros): void => {
+	const addEntry = ({ date, protein, carbs, fat }: NewDayMacros): void => {
 		setDailyMacros([
 			...dailyMacros,
 			{
@@ -68,12 +71,7 @@ const MacrosProvider = ({ children }: PropsWithChildren): JSX.Element => {
 		]);
 	};
 
-	const removeEntry = (id: string | undefined): void => {
-		if (!id) {
-			console.warn('Unable to remove entry without providing the ID');
-			return;
-		}
-
+	const removeEntry = (id: string): void => {
 		setDailyMacros(dailyMacros.filter((entry) => entry.id !== id));
 	};
 

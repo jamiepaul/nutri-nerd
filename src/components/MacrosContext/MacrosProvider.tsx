@@ -16,6 +16,13 @@ const MacrosProvider = ({ children }: PropsWithChildren): JSX.Element => {
 	}, [dailyMacros]);
 
 	const addEntry = ({ date, protein, carbs, fat }: NewDayMacros): void => {
+		// ensure valid inputs
+		if (protein < 0 || carbs < 0 || fat < 0 || !date?.trim()) {
+			//TODO throw error
+			alert('Invalid input values.');
+			return;
+		}
+
 		setDailyMacros([
 			...dailyMacros,
 			{

@@ -5,6 +5,9 @@ export const random = (min: number, max: number): number => {
 
 // Calculate the average of an array of values
 export const average = (array: number[]): number => {
+	if (array.length === 0) {
+		return 0;
+	}
 	const totalSum = array.reduce(
 		(sum: number, currentValue: number) => sum + currentValue,
 		0

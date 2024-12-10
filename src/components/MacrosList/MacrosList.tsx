@@ -1,12 +1,14 @@
 import { useMacrosContext } from '../MacrosContext/MacrosContext';
 import { Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
 import styles from './MacrosList.module.css';
+import { MacrosContextState } from '../MacrosContext/types';
 
-const MacrosList = (): JSX.Element | undefined => {
-	const { dailyMacros, removeEntry, removeAllEntries } = useMacrosContext();
+const MacrosList = (): JSX.Element | null => {
+	const { dailyMacros, removeEntry, removeAllEntries }: MacrosContextState =
+		useMacrosContext();
 
 	if (dailyMacros.length <= 0) {
-		return;
+		return null;
 	}
 
 	console.log(dailyMacros);

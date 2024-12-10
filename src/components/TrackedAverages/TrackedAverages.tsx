@@ -25,7 +25,7 @@ const TrackedAverages = (): JSX.Element => {
 
 	return (
 		<div className={styles.average}>
-			<h2>Tracked Averages</h2>
+			<h2>Tracked Macronutrient Averages</h2>
 			<p>From X to X (todo add dates)</p>
 			<dl className={styles.values}>
 				<div className={styles.value}>

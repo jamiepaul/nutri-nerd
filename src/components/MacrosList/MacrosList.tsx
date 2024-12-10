@@ -15,7 +15,11 @@ const MacrosList = (): JSX.Element | null => {
 
 	return (
 		<aside className={styles['macros-list']}>
-			<button className={styles.reset} onClick={removeAllEntries}>
+			<button
+				className={styles.reset}
+				onClick={removeAllEntries}
+				aria-label="Delete all macro entries"
+			>
 				Clear All
 				<TrashIcon />
 			</button>
@@ -40,6 +44,7 @@ const MacrosList = (): JSX.Element | null => {
 						<button
 							className={styles.button}
 							onClick={() => removeEntry(day.id)}
+							aria-label={`Delete macros entry for ${day.date}`}
 						>
 							<Cross2Icon width="20" height="20" />
 						</button>

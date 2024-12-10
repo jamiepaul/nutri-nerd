@@ -5,8 +5,12 @@ export type NewDayMacros = {
 	fat: number;
 };
 
-export type StoredDayMacros = NewDayMacros & {
+export type StoredDayMacros = {
 	id: string;
+	date?: string;
+	protein: number;
+	carbs: number;
+	fat: number;
 };
 
 export type MacrosContextState = {

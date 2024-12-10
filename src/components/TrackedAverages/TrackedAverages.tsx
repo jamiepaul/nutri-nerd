@@ -3,11 +3,19 @@ import { average } from '../../helpers/math.helpers';
 
 import styles from './TrackedAverages.module.css';
 import { useMacrosContext } from '../MacrosContext/MacrosContext';
+import { StoredDayMacros } from '../MacrosContext/types';
+
+type Averages = {
+	protein: number;
+	carbs: number;
+	fat: number;
+};
 
 const TrackedAverages = (): JSX.Element => {
-	const { dailyMacros } = useMacrosContext();
+	const { dailyMacros }: { dailyMacros: StoredDayMacros[] } =
+		useMacrosContext();
 
-	const avg = useMemo(() => {
+	const avg: Averages = useMemo(() => {
 		if (dailyMacros.length === 0) {
 			return {
 				protein: 0,

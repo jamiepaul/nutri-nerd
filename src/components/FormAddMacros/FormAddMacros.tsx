@@ -3,9 +3,10 @@ import { useMacrosContext } from '../MacrosContext/MacrosContext';
 import { random } from '../../helpers/math.helpers';
 import { SymbolIcon } from '@radix-ui/react-icons';
 import styles from './FormAddMacros.module.css';
+import { MacrosContextState } from '../MacrosContext/types';
 
 const FormAddMacros = (): JSX.Element => {
-	const { addEntry } = useMacrosContext();
+	const { addEntry }: MacrosContextState = useMacrosContext();
 	const [date, setDate] = useState('');
 	const [protein, setProtein] = useState(0);
 	const [carbs, setCarbs] = useState(0);
@@ -57,36 +58,45 @@ const FormAddMacros = (): JSX.Element => {
 						<label htmlFor="protein">Protein (g)</label>
 						<input
 							type="number"
-							min="0"
 							id="protein"
 							name="protein"
 							required
-							value={protein}
-							onChange={(e) => setProtein(e.target.valueAsNumber)}
+							min="0"
+							placeholder="0"
+							value={protein === 0 ? '' : protein}
+							onChange={(e) =>
+								setProtein(e.target.valueAsNumber || 0)
+							}
 						/>
 					</div>
 					<div className={styles.field}>
 						<label htmlFor="carbs">Carbs (g)</label>
 						<input
 							type="number"
-							min="0"
 							id="carbs"
 							name="carbs"
 							required
-							value={carbs}
-							onChange={(e) => setCarbs(e.target.valueAsNumber)}
+							min="0"
+							placeholder="0"
+							value={carbs === 0 ? '' : carbs}
+							onChange={(e) =>
+								setCarbs(e.target.valueAsNumber || 0)
+							}
 						/>
 					</div>
 					<div className={styles.field}>
 						<label htmlFor="fat">Fat (g)</label>
 						<input
 							type="number"
-							min="0"
 							id="fat"
 							name="fat"
 							required
-							value={fat}
-							onChange={(e) => setFat(e.target.valueAsNumber)}
+							min="0"
+							placeholder="0"
+							value={fat === 0 ? '' : fat}
+							onChange={(e) =>
+								setFat(e.target.valueAsNumber || 0)
+							}
 						/>
 					</div>
 				</div>
@@ -97,6 +107,7 @@ const FormAddMacros = (): JSX.Element => {
 						type="button"
 						className={styles['btn-random']}
 						onClick={addRandomEntry}
+						aria-label="Generate a random macro entry"
 					>
 						Generate Random
 						<SymbolIcon />
